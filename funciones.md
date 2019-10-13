@@ -75,8 +75,53 @@ function suma(numero1,numero2) {
 ## Parte 2
 
 1. Guardar en una variable llamada "sig", que tenga como valor la función siguiente. Usarla después.
+
+    ```javascript
+    var sig = siguiente
+    sig(5) // 6
+    ```
+
 2. Crear una variable llamada "log", que tenga como valor la función `console.log`. Usarla después.
+
+    ```javascript
+    var log = console.log
+    log("Hola!") // Hola!
+    ```
+
 3. Crear un objeto "consola", que tenga un atributo con valor `console.log`. Usarla después.
-5. Crear una función llamada "ejecutar" que reciba por parámetro una función y la ejecute.
-4. Crear una función llamada "operar", que reciba 1 función por parámetro, y un número. La misma debe retornar el resultado de ejecutar la función recibida, pasándole el número recibido.
-5. Crear una función "vago", que me retorne una función que cuando se llame imprima un mensaje por consola.
+
+    ```javascript
+    var consola = {
+    atributo: console.log
+    }
+    consola.atributo("Hola!") // Hola!
+    ```
+
+4. Crear una función llamada "ejecutar" que reciba por parámetro una función y la ejecute.
+
+    ```javascript
+    function hola(){ // Esta es la función que voy a ejecutar
+        return "Hola Che!"
+        }
+    function ejecutar(funcion) { // Creo la función ejecutar
+        return funcion()
+        }
+    ejecutar(hola) // La ejecuto y devuelve esto --> Hola Che! 
+    ```
+
+5. Crear una función llamada "operar", que reciba 1 función por parámetro, y un número. La misma debe retornar el resultado de ejecutar la función recibida, pasándole el número recibido.
+
+    ```javascript
+    function operar(funcion,numero){
+        return funcion(numero)
+        }
+    operar(siguiente,5) // La ejecuto y devuelve --> 6
+    ```
+
+6. Crear una función "vago", que me retorne una función que cuando se llame imprima un mensaje por consola.
+    ```javascript
+    function vago(){
+        return console.log("**Imprime un mensaje por consola**")
+        }
+    vago() // **Imprime un mensaje por consola**
+    ```
