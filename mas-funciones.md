@@ -3,14 +3,52 @@
 ## Parte 1: variables vs parámetros
 
 1. Crear una función "decirPersonalidad", la cual reciba un objeto por parámetro y muestre por consola su atributo con nombre "personalidad". Una vez definida la función, llamarla de 2 formas:
+    ```js
+    function decirPersonalidad(objeto){
+        return console.log(objeto.personalidad)
+        }
+    ```
     1. definiendo un objeto llamado "persona" en una variable, y luego llamar la función "decirPersonalidad".
+    ```js
+    var persona = {
+        personalidad: "Lo que sea"
+        }
+    decirPersonalidad(persona) // < Lo que sea
+    ```
     1. llamándo directamente a la función "decirPersonalidad" definiendo un objeto en su parámetro.
+    ```js
+    decirPersonalidad(otra_Persona = {
+        personalidad: "Lo que sea 2"
+        }) // < Lo que sea 2
+    ```
+
 1. Crear una función "aumentarContador", la cual aumente en 1 la variable "contador" cuando se ejecute. No hace falta definirle parámetros.
+
+    ```js
+    var contador = 0
+    
+    function aumentarContador(){
+        return contador += 1
+        }
+    ```
+
 1. Definir una variable llamada "variable", con valor "soy una variable". Luego, crear una función "variableParametro", la cual tenga un parámetro con nombre "variable", la misma debe hacer `console.log` del parámetro cuando se ejecuta. Responder:
     1. Qué valor va a imprimir por consola cuando ejecuto la función "variableParametro" con el valor "soy un parametro"?
+        ```js
+        variableParametro("Soy un parametro") // < Soy un parametro
+        ```
     1. Qué valor va a imprimir por consola cuando ejecuto la función "variableParametro" con el valor que tenga la variable "variable"?
+        ```js
+        variableParametro(variable) // < Soy una variable
+        ```
     1. Qué valor va a imprimir por consola si vuelvo a definir la función "variableParametro" sin parámetros, y la ejecuto con el valor "soy un parametro"?
+        ```js
+        variableParametro("Soy un parametro") // < undefined
+        ```
     1. Qué podrían hacer para no caer en confusión cuando tienen un parámetro con mismo nombre que una variable definida afuera de la función?
+        ```js
+        // Deberían declararse con distinto nombre para evitar confusión, como variable_var y variable_par
+        ```
 
 ## Parte 2: jodiendo al programador
 
