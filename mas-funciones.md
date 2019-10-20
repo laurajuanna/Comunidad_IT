@@ -84,6 +84,7 @@ Ejercicios:
         empleado: true
             }
     ```
+    
 1. Crear una función "esProductivo", que reciba un programador y retorne:
     - `true` cuando el `quemades` sea menor a `energia`.
     - `false` cuando no pase lo anterior.
@@ -111,10 +112,21 @@ Ejercicios:
 		Object.assign(prog,{
 			quemades: prog.quemades + (hrTrab*2),
 			energia: prog.energia - hrTrab })
-		}
+	}
 	```
 	
 1. Crear una función "dormir", la cual recibe un programador y un número de horas dormidas, y retorna un programador con 1 nivel de `energia` más por hora dormida, y 2 niveles de `quemades` menos por hora dormida.
+	
+	```js
+	function dormir(prog,hrDorm){
+	Object.assign(prog,{
+		quemades: prog.quemades - (hrDorm*2),
+		energia: prog.energia + hrDorm })
+	}
+	```
+	
 1. Crear una función "simularDespido", que reciba un programador, y si luego de tomar cafe y dormir 2 horas no es productivo, retorne un programador no empleado, de lo contrario retornar el mismo programador.
+
 1. Crear una función "simularContratacion", que reciba un programador, y si su nivel de `energia` es mayor a 8, su quemadés es menor a 2, y no es empleado, que retorne un programador empleado.
+
 1. Crear una función "accion", que reciba un programador y una función de las anteriores creadas como parámetros. La misma debe imprimir por consola el programador, luego ejecutar la función recibida por parámetro con el programador, y finalmente otra impresión por consola del programador.
