@@ -151,3 +151,12 @@ Ejercicios:
 	```
 
 1. Crear una función "accion", que reciba un programador y una función de las anteriores creadas como parámetros. La misma debe imprimir por consola el programador, luego ejecutar la función recibida por parámetro con el programador, y finalmente otra impresión por consola del programador.
+
+	```js
+	function accion(prog,funci,otro_parametro){
+		console.log(prog)
+		funci(prog,otro_parametro)
+		console.log(prog)
+		}
+	// Le agregué "otro_parametro" para que las funciones que reciben más de un parametro también puedan ser ejecutadas.
+	```
