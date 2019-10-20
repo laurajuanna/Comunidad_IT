@@ -75,8 +75,8 @@ Ejercicios:
     - quemades: número entre 0 y 10.
     - energia: número entre 0 y 10.
     - empleado: false
-    
-    ```js
+
+     ```js
     var programador = {
         nombre: "Laura",
         quemades: 5,
@@ -88,7 +88,7 @@ Ejercicios:
 1. Crear una función "esProductivo", que reciba un programador y retorne:
     - `true` cuando el `quemades` sea menor a `energia`.
     - `false` cuando no pase lo anterior.
-    
+
     ```js
     function esProductivo(prog){
         return prog.quemades < prog.energia
@@ -119,13 +119,24 @@ Ejercicios:
 	
 	```js
 	function dormir(prog,hrDorm){
-	Object.assign(prog,{
-		quemades: prog.quemades - (hrDorm*2),
-		energia: prog.energia + hrDorm })
+		Object.assign(prog,{
+			quemades: prog.quemades - (hrDorm*2),
+			energia: prog.energia + hrDorm })
 	}
 	```
 	
 1. Crear una función "simularDespido", que reciba un programador, y si luego de tomar cafe y dormir 2 horas no es productivo, retorne un programador no empleado, de lo contrario retornar el mismo programador.
+
+	```js
+	function simularDespido(prog){
+		tomarCafe(prog)
+		dormir(prog,2)
+		var esProd = esProductivo(prog)
+		var resultado = {
+			empleado : esProd }
+		return Object.assign(prog,resultado)
+		}
+	```
 
 1. Crear una función "simularContratacion", que reciba un programador, y si su nivel de `energia` es mayor a 8, su quemadés es menor a 2, y no es empleado, que retorne un programador empleado.
 
