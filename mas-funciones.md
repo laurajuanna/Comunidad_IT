@@ -140,4 +140,14 @@ Ejercicios:
 
 1. Crear una función "simularContratacion", que reciba un programador, y si su nivel de `energia` es mayor a 8, su quemadés es menor a 2, y no es empleado, que retorne un programador empleado.
 
+	```js
+	function simularContratacion(prog){
+		var contratar = {
+			empleado: true }
+		if (prog.empleado === false && prog.energia > 8 && prog.quemades < 2) {
+			return Object.assign(prog,contratar)}
+		else return prog
+	}
+	```js
+
 1. Crear una función "accion", que reciba un programador y una función de las anteriores creadas como parámetros. La misma debe imprimir por consola el programador, luego ejecutar la función recibida por parámetro con el programador, y finalmente otra impresión por consola del programador.
