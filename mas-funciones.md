@@ -95,6 +95,15 @@ Ejercicios:
     ```
     
 1. Crear una función "tomarCafe", la cual recibe un programador, y retorna un programador con nivel de quemadés con 2 niveles menos de los que tenía, y energia con 3 niveles más de lo que tenía.
+    
+    ```js
+    function tomarCafe(prog){
+	Object.assign(prog,{
+		quemades: prog.quemades - 2,
+		energia: prog.energia + 3 })
+            }
+    ```
+    
 1. Crear una funcíon "programar", la cual recibe un programador y un número de horas trabajadas, y retorna un programador con 1 nivel de `energia` menos por cada hora trabajada, y 2 niveles de `quemades` más por hora trabajada.
 1. Crear una función "dormir", la cual recibe un programador y un número de horas dormidas, y retorna un programador con 1 nivel de `energia` más por hora dormida, y 2 niveles de `quemades` menos por hora dormida.
 1. Crear una función "simularDespido", que reciba un programador, y si luego de tomar cafe y dormir 2 horas no es productivo, retorne un programador no empleado, de lo contrario retornar el mismo programador.
