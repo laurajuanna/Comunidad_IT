@@ -121,4 +121,16 @@ Este es el contenido // me devuelve el contenido
 
 6. Crear un programa que importe el archivo "config.json" y muestre el título por consola.
 
+```javascript
+var fs = require('fs');
+
+var json = require('./config.json')
+
+console.log(json.titulo)
+
+// Lo que escribo en la consola de git
+$ node main.js // Accedo al archivo
+El gran título // Me devuelve el título escrito en el json
+```
+
 7. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola, **pero** esta vez, reemplazando `@titulo@` por el título que esté en el archivo "config.json", y así con las otras variables del html.
