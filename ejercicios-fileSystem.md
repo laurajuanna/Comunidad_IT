@@ -86,9 +86,39 @@ $ node main.js // Solo llamo al archivo y lo crea
 }
 ```
 
+```javascript
+var fs = require('fs');
+
+var nombreArchivo = 'config.json'
+var contenido = `
+{
+	"titulo": "El gran título",
+	"subtitulo": "Un subtítulo",
+	"descripcion": "Una descripción larga que no se me ocurre que poner, tururu ru ru ru"
+}
+`
+
+fs.writeFileSync(nombreArchivo,contenido)
+
+// Lo que escribo en la consola de git
+$ node main.js // Solo llamo al archivo y lo crea
+```
+
 5. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola.
+
+```javascript
+var fs = require('fs');
+
+var nombreArchivo = process.argv[2]
+
+var contenido = fs.readFileSync(nombreArchivo, 'utf-8')
+console.log(contenido)
+
+// Lo que escribo en la consola de git
+$ node main.js nuevoArchivo.js // Le paso por parametro el nombre del archivo
+Este es el contenido // me devuelve el contenido
+```
+
 6. Crear un programa que importe el archivo "config.json" y muestre el título por consola.
+
 7. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola, **pero** esta vez, reemplazando `@titulo@` por el título que esté en el archivo "config.json", y así con las otras variables del html.
-
-
-## Ejercicio Final
