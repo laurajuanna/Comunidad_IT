@@ -27,6 +27,18 @@ $ node main.js carpeta // No devuelve nada, solo crea la carpeta con el parametr
 ```
 
 3. Crear un programa que cree un archivo con nombre igual al que reciba como primer parámetro, y contenido igual al que reciba como segundo parámetro.
+
+```javascript
+var fs = require('fs');
+
+var nombreArchivo = process.argv[2]
+var contenido = process.argv[3]
+fs.writeFileSync(nombreArchivo,contenido)
+
+// Lo que escribo en la consola de git
+$ node main.js nuevoArchivo.txt 'Este es el contenido' // No devuelve nada, solo crea el archivo
+```
+
 4. Crear un programa que cree un archivo "index.html", que contenga como contenido:
 
 ```html
@@ -40,6 +52,28 @@ $ node main.js carpeta // No devuelve nada, solo crea la carpeta con el parametr
 		<p>@descripcion@</p>
 	</body>
 </html>
+```
+
+```javascript
+var fs = require('fs');
+
+var nombreArchivo = 'index.html'
+var contenido = `
+    <html lang="es">
+	<head>
+		<title>@titulo@</title>
+	</head>
+	<body>
+		<h1>@titulo@</h1>
+		<h2>@subtitulo@</h2>
+		<p>@descripcion@</p>
+	</body>
+</html> `
+
+fs.writeFileSync(nombreArchivo,contenido)
+
+// Lo que escribo en la consola de git
+$ node main.js // Solo llamo al archivo y lo crea
 ```
 
 5. Crear un programa que cree un archivo "config.json", que contenga como contenido:
