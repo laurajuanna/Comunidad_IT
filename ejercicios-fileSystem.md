@@ -7,9 +7,25 @@ var fs = require('fs');
 
 var directorios = fs.readdirSync('.');
 console.log(directorios)
+
+//Lo que escribo en la consola de git
+$ node main.js
+[ 'archivo.txt', 'estilos.css', 'index.html', 'main.js' ] // devuelve el directorio y archivos
 ```
 
 2. Crear un programa que cree una carpeta con nombre igual al que reciba por parámetros.
+
+```javascript
+var fs = require('fs');
+
+var nombreCarpeta = process.argv[2]
+
+fs.mkdirSync(nombreCarpeta)
+
+// Lo que escribo en la consola de git
+$ node main.js carpeta // No devuelve nada, solo crea la carpeta con el parametro escrito (carpeta)
+```
+
 3. Crear un programa que cree un archivo con nombre igual al que reciba como primer parámetro, y contenido igual al que reciba como segundo parámetro.
 4. Crear un programa que cree un archivo "index.html", que contenga como contenido:
 
