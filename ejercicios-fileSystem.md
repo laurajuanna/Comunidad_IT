@@ -149,9 +149,9 @@ contenido = contenido.replace("@titulo@", json.titulo); // Reemplaza el titulo
 contenido = contenido.replace("@subtitulo@", json.subtitulo); // Reemplaza el subtitulo
 contenido = contenido.replace("@descripcion@", json.descripcion); // Reemplaza la descripcion
 
-fs.writeFileSync(nombreArchivo,contenido) // Escribe el nuevo contenido en el archivo principal
+fs.writeFileSync(nombreArchivo,contenido) // Esta línea es opcional, reemplaza al contenido viejo con el nuevo en el archivo original.
 
-console.log(contenido) // Muestra el contenido en pantalla
+console.log(contenido) // Por último, muestra el contenido en pantalla
 
 // ----------- Lo que escribo en la consola de git
 
