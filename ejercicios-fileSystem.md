@@ -174,3 +174,25 @@ u ru ru</p> // descripcion cambiada
         </body>
 </html>
 ```
+
+De todas formas, aunque el resultado respeta la consigna, **no me cierra el largo del código**. Siento que podría reducirse...
+Más abajo escribí otra posible solución pero más corta...
+
+```javascript
+var fs = require('fs');
+
+var json = require('./config.json')
+var titulo = json.titulo
+var subtitulo = json.subtitulo
+var descripcion = json.descripcion
+
+var nombreArchivo = process.argv[2]
+
+fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@titulo@",titulo)))
+fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@titulo@",titulo)))
+fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@subtitulo@",subtitulo)))
+fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@descripcion@",descripcion)))
+
+var nuevoContenido = fs.readFileSync(nombreArchivo, 'utf-8')
+console.log(nuevoContenido)
+```
