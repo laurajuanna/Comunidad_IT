@@ -139,28 +139,22 @@ El gran título // Me devuelve el título escrito en el json
 var fs = require('fs'); // llama al fs
 
 var json = require('./config.json') // llama al json
-var titulo = json.titulo // Guarda el titulo en una variable
-var subtitulo = json.subtitulo // Lo mismo con el subtitulo
-var descripcion = json.descripcion // Lo mismo con la descripcion
 
-var nombreArchivo = process.argv[2] // guarda el nombre del archivo pasado por parametro
+var nombreArchivo = process.argv[2] // Toma el nombre del parametro
 
-var contenido1 = fs.readFileSync(nombreArchivo, 'utf-8') // Lee el contenido del archivo y lo guarda en la variable
-fs.writeFileSync(nombreArchivo,(contenido1.replace("@titulo@",titulo))) // Escribe en el archivo reemplazando el titulo
+var contenido = fs.readFileSync(nombreArchivo, 'utf-8'); // Guarda el contenido en una variable
 
-var contenido2 = fs.readFileSync(nombreArchivo, 'utf-8') // Vuelve a leer el contenido del archivo y lo guarda
-fs.writeFileSync(nombreArchivo,(contenido2.replace("@titulo@",titulo))) // reemplaza.. se repite el proceso dos veces mas
+contenido = contenido.replace("@titulo@", json.titulo); // Reemplaza el titulo del <title>
+contenido = contenido.replace("@titulo@", json.titulo); // Reemplaza el titulo
+contenido = contenido.replace("@subtitulo@", json.subtitulo); // Reemplaza el subtitulo
+contenido = contenido.replace("@descripcion@", json.descripcion); // Reemplaza la descripcion
 
-var contenido3 = fs.readFileSync(nombreArchivo, 'utf-8')
-fs.writeFileSync(nombreArchivo,(contenido3.replace("@subtitulo@",subtitulo)))
+fs.writeFileSync(nombreArchivo,contenido) // Escribe el nuevo contenido en el archivo principal
 
-var contenido4 = fs.readFileSync(nombreArchivo, 'utf-8')
-fs.writeFileSync(nombreArchivo,(contenido4.replace("@descripcion@",descripcion)))
+console.log(contenido) // Muestra el contenido en pantalla
 
-var nuevoContenido = fs.readFileSync(nombreArchivo, 'utf-8') // finalmente lo lee y lo guarda en la variable
-console.log(nuevoContenido) // lo devuelve en la consola
+// ----------- Lo que escribo en la consola de git
 
-// Lo que escribo en la consola de git
 $ node main.js index.html // Esto es lo que escribo y abajo lo que devuelve
 <html lang="es">
         <head>
@@ -173,26 +167,4 @@ $ node main.js index.html // Esto es lo que escribo y abajo lo que devuelve
 u ru ru</p> // descripcion cambiada
         </body>
 </html>
-```
-
-De todas formas, aunque el resultado respeta la consigna, **no me cierra el largo del código**. Siento que podría reducirse...
-Más abajo escribí otra posible solución pero más corta...
-
-```javascript
-var fs = require('fs');
-
-var json = require('./config.json')
-var titulo = json.titulo
-var subtitulo = json.subtitulo
-var descripcion = json.descripcion
-
-var nombreArchivo = process.argv[2]
-
-fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@titulo@",titulo)))
-fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@titulo@",titulo)))
-fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@subtitulo@",subtitulo)))
-fs.writeFileSync(nombreArchivo,((fs.readFileSync(nombreArchivo, 'utf-8')).replace("@descripcion@",descripcion)))
-
-var nuevoContenido = fs.readFileSync(nombreArchivo, 'utf-8')
-console.log(nuevoContenido)
 ```
