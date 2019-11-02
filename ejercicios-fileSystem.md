@@ -134,3 +134,43 @@ El gran título // Me devuelve el título escrito en el json
 ```
 
 7. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola, **pero** esta vez, reemplazando `@titulo@` por el título que esté en el archivo "config.json", y así con las otras variables del html.
+
+```javascript
+var fs = require('fs'); // llama al fs
+
+var json = require('./config.json') // llama al json
+var titulo = json.titulo // Guarda el titulo en una variable
+var subtitulo = json.subtitulo // Lo mismo con el subtitulo
+var descripcion = json.descripcion // Lo mismo con la descripcion
+
+var nombreArchivo = process.argv[2] // guarda el nombre del archivo pasado por parametro
+
+var contenido1 = fs.readFileSync(nombreArchivo, 'utf-8') // Lee el contenido del archivo y lo guarda en la variable
+fs.writeFileSync(nombreArchivo,(contenido1.replace("@titulo@",titulo))) // Escribe en el archivo reemplazando el titulo
+
+var contenido2 = fs.readFileSync(nombreArchivo, 'utf-8') // Vuelve a leer el contenido del archivo y lo guarda
+fs.writeFileSync(nombreArchivo,(contenido2.replace("@titulo@",titulo))) // reemplaza.. se repite el proceso dos veces mas
+
+var contenido3 = fs.readFileSync(nombreArchivo, 'utf-8')
+fs.writeFileSync(nombreArchivo,(contenido3.replace("@subtitulo@",subtitulo)))
+
+var contenido4 = fs.readFileSync(nombreArchivo, 'utf-8')
+fs.writeFileSync(nombreArchivo,(contenido4.replace("@descripcion@",descripcion)))
+
+var nuevoContenido = fs.readFileSync(nombreArchivo, 'utf-8') // finalmente lo lee y lo guarda en la variable
+console.log(nuevoContenido) // lo devuelve en la consola
+
+// Lo que escribo en la consola de git
+$ node main.js index.html // Esto es lo que escribo y abajo lo que devuelve
+<html lang="es">
+        <head>
+                <title>El gran título</title> // titulo cambiado
+        </head>
+        <body>
+                <h1>El gran título</h1> // titulo cambiado
+                <h2>Un subtítulo</h2> // subtitulo cambiado
+                <p>Una descripción larga que no se me ocurre que poner, tururu r
+u ru ru</p> // descripcion cambiada
+        </body>
+</html>
+```
