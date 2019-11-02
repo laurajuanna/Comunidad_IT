@@ -1,6 +1,6 @@
-# File System (fs)
+# Módulo File System (fs)
 
-1. Crear un programa que muestre los archivos y directorios donde está contenido.
+### 1. Crear un programa que muestre los archivos y directorios donde está contenido. ###
 
 ```javascript
 var fs = require('fs');
@@ -13,7 +13,7 @@ $ node main.js
 [ 'archivo.txt', 'estilos.css', 'index.html', 'main.js' ] // devuelve el directorio y archivos
 ```
 
-2. Crear un programa que cree una carpeta con nombre igual al que reciba por parámetros.
+### 2. Crear un programa que cree una carpeta con nombre igual al que reciba por parámetros. ###
 
 ```javascript
 var fs = require('fs');
@@ -26,7 +26,7 @@ fs.mkdirSync(nombreCarpeta)
 $ node main.js carpeta // No devuelve nada, solo crea la carpeta con el parametro escrito (carpeta)
 ```
 
-3. Crear un programa que cree un archivo con nombre igual al que reciba como primer parámetro, y contenido igual al que reciba como segundo parámetro.
+### 3. Crear un programa que cree un archivo con nombre igual al que reciba como primer parámetro, y contenido igual al que reciba como segundo parámetro. ###
 
 ```javascript
 var fs = require('fs');
@@ -39,7 +39,7 @@ fs.writeFileSync(nombreArchivo,contenido)
 $ node main.js nuevoArchivo.txt 'Este es el contenido' // No devuelve nada, solo crea el archivo
 ```
 
-4. Crear un programa que cree un archivo "index.html", que contenga como contenido:
+### 4. Crear un programa que cree un archivo "index.html", que contenga como contenido: ###
 
 ```html
 <html lang="es">
@@ -76,7 +76,7 @@ fs.writeFileSync(nombreArchivo,contenido)
 $ node main.js // Solo llamo al archivo y lo crea
 ```
 
-5. Crear un programa que cree un archivo "config.json", que contenga como contenido:
+### 5. Crear un programa que cree un archivo "config.json", que contenga como contenido: ###
 
 ```json
 {
@@ -104,7 +104,7 @@ fs.writeFileSync(nombreArchivo,contenido)
 $ node main.js // Solo llamo al archivo y lo crea
 ```
 
-5. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola.
+### 5. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola. ###
 
 ```javascript
 var fs = require('fs');
@@ -119,7 +119,7 @@ $ node main.js nuevoArchivo.js // Le paso por parametro el nombre del archivo
 Este es el contenido // me devuelve el contenido
 ```
 
-6. Crear un programa que importe el archivo "config.json" y muestre el título por consola.
+### 6. Crear un programa que importe el archivo "config.json" y muestre el título por consola. ###
 
 ```javascript
 var fs = require('fs');
@@ -133,7 +133,7 @@ $ node main.js // Accedo al archivo
 El gran título // Me devuelve el título escrito en el json
 ```
 
-7. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola, **pero** esta vez, reemplazando `@titulo@` por el título que esté en el archivo "config.json", y así con las otras variables del html.
+### 7. Crear un programa que lea un archivo, la ruta la obtendrá por parámetro, y muestre su contenido en consola, **pero** esta vez, reemplazando `@titulo@` por el título que esté en el archivo "config.json", y así con las otras variables del html. ###
 
 ```javascript
 var fs = require('fs'); // llama al fs
