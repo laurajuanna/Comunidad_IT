@@ -74,4 +74,7 @@ console.log(acentos)
 
 
 5. Pasar el programa anterior a un módulo. Ese módulo debería definir la función "slug" y exportarla. La función ahora tomará el texto como parámetro de la función, y no como parámetro de ejecución del programa. Para probar que funcione, importarla desde otro archivo y ejecutarla.
+
+[Para resolver este acá está lo de exports module](https://github.com/laurajuanna/ComIT/blob/master/ejercicios-nodejs.md)
+
 6. Crear un programa que al ser ejecutado obtenga un nombre como parámetro de ejecución del programa. El programa debe crear una carpeta con nombre igual al que haya obtenido por parámetro, **PERO**, el nombre se va a modificar aplicándosele la función "slug", que deberá ser importada del módulo creado anteriormente.
