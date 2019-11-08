@@ -75,6 +75,32 @@ console.log(acentos)
 
 5. Pasar el programa anterior a un módulo. Ese módulo debería definir la función "slug" y exportarla. La función ahora tomará el texto como parámetro de la función, y no como parámetro de ejecución del programa. Para probar que funcione, importarla desde otro archivo y ejecutarla.
 
-[Para resolver este acá está lo de exports module](https://github.com/laurajuanna/ComIT/blob/master/ejercicios-nodejs.md)
+```js
+// ARCHIVO.JS
+function slug(cadena){
+    var resultado = cadena.replace(/ /g,'-')
+    resultado = resultado.toLowerCase()
+    resultado = resultado.replace(/á/g,'a')
+    resultado = resultado.replace(/Á/g,'A')
+    resultado = resultado.replace(/é/g,'e')
+    resultado = resultado.replace(/É/g,'E')
+    resultado = resultado.replace(/í/g,'i')
+    resultado = resultado.replace(/Í/g,'I')
+    resultado = resultado.replace(/ó/g,'o')
+    resultado = resultado.replace(/Ó/g,'O')
+    resultado = resultado.replace(/ú/g,'u')
+    resultado = resultado.replace(/Ú/g,'U')
+    console.log(resultado)
+}
+
+module.exports = slug
+
+// ARCHIVO MAIN.JS
+var slug = require('./slug')
+
+var texto = process.argv[2]
+
+slug(texto)
+```
 
 6. Crear un programa que al ser ejecutado obtenga un nombre como parámetro de ejecución del programa. El programa debe crear una carpeta con nombre igual al que haya obtenido por parámetro, **PERO**, el nombre se va a modificar aplicándosele la función "slug", que deberá ser importada del módulo creado anteriormente.
