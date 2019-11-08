@@ -48,6 +48,30 @@ nombre = nombre.toLowerCase()
 
 console.log(nombre) //> "norman"
 ```
+Solución
+
+```js
+var cadena = process.argv[2]
+
+console.log(cadena.replace(/ /g,'-'))
+// Entre barras lo que queremos reemplazar y la g para que se reemplace globalmente
+
+console.log(cadena.toLowerCase())
+
+var acentos = cadena.replace(/á/g,'a')
+acentos = acentos.replace(/Á/g,'A')
+acentos = acentos.replace(/é/g,'e')
+acentos = acentos.replace(/É/g,'E')
+acentos = acentos.replace(/í/g,'i')
+acentos = acentos.replace(/Í/g,'I')
+acentos = acentos.replace(/ó/g,'o')
+acentos = acentos.replace(/Ó/g,'O')
+acentos = acentos.replace(/ú/g,'u')
+acentos = acentos.replace(/Ú/g,'U')
+
+console.log(acentos)
+```
+
 
 5. Pasar el programa anterior a un módulo. Ese módulo debería definir la función "slug" y exportarla. La función ahora tomará el texto como parámetro de la función, y no como parámetro de ejecución del programa. Para probar que funcione, importarla desde otro archivo y ejecutarla.
 6. Crear un programa que al ser ejecutado obtenga un nombre como parámetro de ejecución del programa. El programa debe crear una carpeta con nombre igual al que haya obtenido por parámetro, **PERO**, el nombre se va a modificar aplicándosele la función "slug", que deberá ser importada del módulo creado anteriormente.
