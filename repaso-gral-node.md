@@ -9,7 +9,27 @@ console.log("Hola "+nombre)
 ```
 
 2. Crear un programa que obtenga la edad por parámetro cuando se ejecute, y muestre por consola el mensaje "mayor" si la edad ingresada es `>18` o menor en el caso contrario.
+
+```js
+var edad = parseInt(process.argv[2])
+
+if (edad > 18) {
+    console.log("Mayor")
+}else{
+    console.log("Menor")
+}
+```
+
 3. Crear un programa que obtenga un nombre por parámetro y cree una carpeta con ese nombre.
+
+```js
+var fs = require('fs')
+
+var carpeta = process.argv[2]
+
+fs.mkdirSync(carpeta)
+```
+
 4. Crear el programa "slug.js" que reciba un texto como parámetro y reemplace del texto todos los:
 	- espacios por guiones medios (`"el profesor de node"` -> `"el-profesor-de-node"`).
 	- mayúsculas por minúsculas (`"NoRmaN" -> `"norman"`).
