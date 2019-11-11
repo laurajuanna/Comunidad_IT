@@ -106,6 +106,28 @@ $ node index.js
 
 2. Mismo que el anterior ejercicio, solo que ahora con el header `Accept: text/html`, y guardarlo en un archivo `salida.html`. Con la URL `https://emoji-aleatorio.herokuapp.com/emoji`.
 
+```js
+var fs = require('fs');
+
+var fetch = require('node-fetch');
+var url = 'https://emoji-aleatorio.herokuapp.com/emoji'
+
+async function get() {
+  var respuesta = await fetch(url, {
+    headers: {
+      Accept: 'text/html'
+    }
+  })
+  var texto = await respuesta.text()
+  fs.writeFileSync('salida.html',texto)
+}
+
+get()
+
+// en la consola escribo:
+$ node index.js
+```
+
 ## Autentificacion
 
 Para este ejercicio vamos a usar un endpoint que requiere autentificación.
