@@ -43,6 +43,23 @@ $ node index.js https://emoji-aleatorio.herokuapp.com/emoji
 ```
 
 3. Mismo que antes, pero que muestre el atributo `emoji` de la respuesta. Usar esta URL para asegurarse que la respuesta tenga ese atributo: `https://emoji-aleatorio.herokuapp.com/emoji`.
+
+```js
+var fetch = require('node-fetch')
+var url = 'https://emoji-aleatorio.herokuapp.com/emoji'
+
+async function get() {
+  var respuesta = await fetch(url)
+  var data = await respuesta.json()
+  console.log(data.emoji)
+}
+
+get()
+
+// en la consola escribo:
+$ node index.js
+```
+
 4. Hacer un programa que obtenga una URL de una página, como `https://nperrin.io`, y guarda la respuesta en un archivo llamado `salida.html`.
 
 ## Usando headers
