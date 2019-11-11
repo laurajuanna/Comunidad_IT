@@ -259,3 +259,35 @@ fs.writeFileSync(`${contenido.titulo}/index.html`, `contenidoHtml`)
 
 fs.writeFileSync(`${contenido.titulo}/estilos.css`, contenidoCss)
 ```
+
+## Ejercicio mandado por Slack
+### Crear un programa que obtenga 2 colores hexadecimal por parámetro. Y que genere una hoja de estilos css. La misma va a ser resultado de leer el archivo estilos-template.css. El cual tiene el siguiente contenido:
+
+```js
+body {
+  background-color: #@secundario@
+}
+h1, h2, h3 {
+  background-color: #@secundario@
+  color: #@primario@
+}
+main {
+  border: 5px solid #@primario@
+}
+```
+
+### y de reemplazar los textoss @primario@  y @secundario@  por los colores hexadecimales que haya recibido por parámetros. La hoja de estilos será creada con nombre estilos-generados.css
+
+Algo así...
+
+```js
+var color1= process.argv[2]
+var color2 = process.argv[3]
+
+var css = fs.readFileSync('./estilos-template.css', 'utf-8
+
+css = css.replace(/@primario@/g,color1)
+css = css.replace(/@secundario@/g,color2)
+
+fs.writeFileSync('./estilos-generados.css', css)
+```
