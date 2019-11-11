@@ -7,7 +7,26 @@ Además pueden ver [cómo usar `node-fetch`](/apuntes/back/node-fetch.md) una ve
 ## Empezando con GETs 
 
 1. Hacer un programa que obtenga una URL por parámetro cuando se ejecute, y muestre por consola la respuesta en forma de texto.
+
+
 2. Mismo que antes, pero en vez de texto, que muestre por consola la respuesta en forma de JSON.
+
+```js
+var fetch = require('node-fetch')
+var url = process.argv[2]
+
+async function get() {
+  var respuesta = await fetch(url)
+  var data = await respuesta.json()
+  console.log(data)
+}
+
+get()
+
+// en la consola escribo:
+$ node index.js https://emoji-aleatorio.herokuapp.com/emoji
+```
+
 3. Mismo que antes, pero que muestre el atributo `emoji` de la respuesta. Usar esta URL para asegurarse que la respuesta tenga ese atributo: `https://emoji-aleatorio.herokuapp.com/emoji`.
 4. Hacer un programa que obtenga una URL de una página, como `https://nperrin.io`, y guarda la respuesta en un archivo llamado `salida.html`.
 
