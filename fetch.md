@@ -8,6 +8,21 @@ Además pueden ver [cómo usar `node-fetch`](/apuntes/back/node-fetch.md) una ve
 
 1. Hacer un programa que obtenga una URL por parámetro cuando se ejecute, y muestre por consola la respuesta en forma de texto.
 
+```js
+var fetch = require('node-fetch')
+var url = process.argv[2]
+
+async function get() {
+  var respuesta = await fetch(url)
+  var data = await respuesta.text()
+  console.log(data)
+}
+
+get()
+
+// en la consola escribo:
+$ node index.js https://emoji-aleatorio.herokuapp.com/emoji
+```
 
 2. Mismo que antes, pero en vez de texto, que muestre por consola la respuesta en forma de JSON.
 
