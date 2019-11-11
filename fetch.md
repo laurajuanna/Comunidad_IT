@@ -82,7 +82,28 @@ $ node index.js
 
 ## Usando headers
 
-1. Hacer lo mismo que el ejercicio 2, solo que ahora se agrega el header `Accept: text/plain` a la consulta, y mostrar por consola el texto entrante. Con la URL `https://emoji-aleatorio.herokuapp.com/emoji`.
+1. Hacer lo mismo que el ejercicio 2, solo que ahora se agrega el header `Accept: text/plain` a la consulta, y mostrar por consola el texto entrante. Con la URL `https://emoji-aleatorio.herokuapp.com/emoji
+
+```js
+var fetch = require('node-fetch')
+var url = 'https://emoji-aleatorio.herokuapp.com/emoji'
+
+async function get() {
+  var respuesta = await fetch(url, {
+    headers: {
+      Accept: 'text/plain'
+    }
+  })
+  var texto = await respuesta.text()
+  console.log(texto)
+}
+
+get()
+
+// en la consola escribo:
+$ node index.js
+```
+
 2. Mismo que el anterior ejercicio, solo que ahora con el header `Accept: text/html`, y guardarlo en un archivo `salida.html`. Con la URL `https://emoji-aleatorio.herokuapp.com/emoji`.
 
 ## Autentificacion
