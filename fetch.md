@@ -62,6 +62,24 @@ $ node index.js
 
 4. Hacer un programa que obtenga una URL de una página, como `https://nperrin.io`, y guarda la respuesta en un archivo llamado `salida.html`.
 
+```js
+var fs = require('fs');
+
+var fetch = require('node-fetch')
+var url = 'https://nperrin.io'
+
+async function get() {
+  var respuesta = await fetch(url)
+  var data = await respuesta.text()
+  fs.writeFileSync('salida.html',data)
+}
+
+get()
+
+// en la consola escribo:
+$ node index.js
+```
+
 ## Usando headers
 
 1. Hacer lo mismo que el ejercicio 2, solo que ahora se agrega el header `Accept: text/plain` a la consulta, y mostrar por consola el texto entrante. Con la URL `https://emoji-aleatorio.herokuapp.com/emoji`.
