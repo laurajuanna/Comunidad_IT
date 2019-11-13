@@ -76,8 +76,48 @@ $ node main.js
 ```
 
 3. Crear un programa que inicialice un servidor en el puerto `3000`, el mismo debe responder ante el endpoint `/hola` con el texto "mundo".
-4. Como el ejercicio anterior, solo que ahora debe responder con un JSON `{ "respuesta": "mundo" }`. Usar la función `JSON.stringify(objeto)` para enviar la respuesta como texto.
-5. Crear un programa que inicialice un servidor en el puerto `3000`, el mismo debe responder ante el endpoint `/emoji` con un emoji aleatorio en un JSON de esta forma `{ "emoji": "💣" }`. Para este ejercicio van a recibir una pequeña ayuda, la función para obtener un emoji aleatorio es la siguiente:
+
+```js
+var http = require("http")
+var URL = require("url")
+
+var host = "127.0.0.1"
+var port = 3000
+
+var texto = "mundo"
+
+var server = http.createServer(function(req, res) {
+  if (req.method !== "GET") {
+    res.statusCode = 401
+    res.end("Error: se esperaba una conexión GET\n")
+  }
+
+  var objetoUrl = URL.parse(req.url)
+  if (objetoUrl.pathname === "/hola") {
+    var respuesta = texto
+    res.statusCode = 200
+    res.setHeader("Content-Type", "text/plain")
+    res.end(respuesta)
+  } else {
+    res.statusCode = 404
+    res.end("Error: endpoint no encontrado\n")
+  }
+})
+
+server.listen(port, host, function() {
+  console.log(`Servidor escuchando en http://${host}:${port}/`)
+})
+
+// en consola escribo
+//$node main.js
+
+// para verlo en el navegador
+// voy a http://127.0.0.1:3000/hola
+```
+
+### 4. Como el ejercicio anterior, solo que ahora debe responder con un JSON `{ "respuesta": "mundo" }`. Usar la función `JSON.stringify(objeto)` para enviar la respuesta como texto.
+
+### 5. Crear un programa que inicialice un servidor en el puerto `3000`, el mismo debe responder ante el endpoint `/emoji` con un emoji aleatorio en un JSON de esta forma `{ "emoji": "💣" }`. Para este ejercicio van a recibir una pequeña ayuda, la función para obtener un emoji aleatorio es la siguiente:
 
 ```js
 function obtenerEmoji(indice) {
@@ -92,4 +132,4 @@ function obtenerEmoji(indice) {
 var emoji = obtenerEmoji()
 ```
 
-6. Como el ejercicio anterior, pero ahora el endpoint recibe un parámetro opcional `indice`, si este parámetro está definido, se le pasa el índice a la función emoji, de esa forma devuelve el emoji del índice indicado, sino, sigue funcionando como antes.
+### 6. Como el ejercicio anterior, pero ahora el endpoint recibe un parámetro opcional `indice`, si este parámetro está definido, se le pasa el índice a la función emoji, de esa forma devuelve el emoji del índice indicado, sino, sigue funcionando como antes.
