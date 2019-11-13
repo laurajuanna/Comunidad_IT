@@ -165,4 +165,49 @@ function obtenerEmoji(indice) {
 var emoji = obtenerEmoji()
 ```
 
+```js
+
+function obtenerEmoji(indice) {
+    var emojis = ["😀", "😳", "😄", "😁", "😆", "😅", "😂", "😴", "🤭️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "🤤", "😙", "😚", "😋", "😛", "😝", "😜", "😎", "🤓", "🥳", "🤯", "😡", "😱", "🥺", "😏"]
+    if (!indice) {
+        var random = Math.floor(Math.random() * 33)
+        return emojis[random]
+    }
+    return emojis[indice]
+}
+
+var emoji = obtenerEmoji()
+
+var http = require("http")
+var URL = require("url")
+
+var host = "127.0.0.1"
+var port = 3000
+
+var emoji_random = { "emoji": emoji }
+
+var server = http.createServer(function(req, res) {
+  if (req.method !== "GET") {
+    res.statusCode = 401
+    res.end("Error: se esperaba una conexión GET\n")
+  }
+
+  var objetoUrl = URL.parse(req.url)
+  if (objetoUrl.pathname === "/emoji") {
+    var respuesta = JSON.stringify(emoji_random)
+    res.statusCode = 200
+    res.setHeader("Content-Type", "application/json")
+    res.end(respuesta)
+  } else {
+    res.statusCode = 404
+    res.end("Error: endpoint no encontrado\n")
+  }
+})
+
+server.listen(port, host, function() {
+  console.log(`Servidor escuchando en http://${host}:${port}/emoji`)
+})
+
+```
+
 ### 6. Como el ejercicio anterior, pero ahora el endpoint recibe un parámetro opcional `indice`, si este parámetro está definido, se le pasa el índice a la función emoji, de esa forma devuelve el emoji del índice indicado, sino, sigue funcionando como antes.
