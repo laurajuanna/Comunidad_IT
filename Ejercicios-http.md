@@ -75,7 +75,7 @@ var conexion = http.get(url, function(response) {
 $ node main.js
 ```
 
-3. Crear un programa que inicialice un servidor en el puerto `3000`, el mismo debe responder ante el endpoint `/hola` con el texto "mundo".
+### 3. Crear un programa que inicialice un servidor en el puerto `3000`, el mismo debe responder ante el endpoint `/hola` con el texto "mundo".
 
 ```js
 var http = require("http")
