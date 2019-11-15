@@ -6,4 +6,5 @@
 - [Ejercicios con Node.js](https://github.com/laurajuanna/ComIT/blob/master/ejercicios-nodejs.md).
 - [Ejercicios FileSystem con Node.js](https://github.com/laurajuanna/ComIT/blob/master/ejercicios-fileSystem.md).
 - [Repaso general Node.js](https://github.com/laurajuanna/ComIT/blob/master/repaso-gral-node.md).
+- [Ejercicios con Node-Fetch](https://github.com/laurajuanna/ComIT/blob/master/fetch.md).
 - [Ejercicios con HTTP](https://github.com/laurajuanna/ComIT/blob/master/Ejercicios-http.md).
