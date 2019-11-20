@@ -54,6 +54,55 @@ Pueden ayudarse con [esta guía sobre `fetch` desde el frontend](/apuntes/front/
 
 2. Crear una página que cuando se le presione un botón haga un `fetch` a `https://emoji-aleatorio.herokuapp.com/emoji` y muestre el emoji resultante en un elemento HTML `h1`, el elemento HTML puede o no existir de antes que se haga el `fetch`. Solo se debe mostrar el valor del atributo `emoji` que reciba.
 
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    var url_emoji = 'https://emoji-aleatorio.herokuapp.com/emoji'
+    
+    async function obtener_emoji() {
+        var respuesta = await fetch(url_emoji)
+    
+        // ya se de antemano que me viene una respuesta tipo JSON.
+        var contenido = await respuesta.json()
+
+        document.querySelector('body').innerHTML = `
+        <h1>Obtener Emoji Aleatorio</h1>
+        <h2>${contenido.emoji}</h2>
+        <button class="button" onclick="obtener_emoji()">Obtener Emoji</button>
+        `
+    }
+  </script>
+  <style>
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  </style>
+</head>
+
+<body>
+
+    <button class="button" onclick="obtener_emoji()">Obtener Emoji</button>
+
+</body>
+</html>
+```
+
 ## GET + Headers
 
 3. Crear una página que cuando se le presione un botón haga un `fetch` de `https://msn-comit.herokuapp.com/doc`, pero con un header `pastafrola: 'membrillo'`, y muestre el contenido dentro (`innerHTML`) de un elemento HTML `div` creado en la página. Este `div` debe tener los siguientes estilos:
