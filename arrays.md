@@ -118,7 +118,13 @@ var array_array = [
 8. Crear una función que reciba un array de objetos que tengan un atributo nombre, y retorne un array de solo los nombres.
 
 ```js
-
+var chicas_super = [
+    {nombre: "Bombon"},
+    {nombre: "Burbuja"},
+    {nombre: "Bellota"}];
+    
+chicas_super.map(function(chica){
+	return chica.nombre})
 ```
 
 9. Crear 3 funciones que toman un número por parámetro y retornar alguna operación con ese número (el doble, el siguiente, la mitad, etc). Luego crear una función que tome una lista de 3 funciones como primer parámetro, un número como segundo parámetro y devuelva una lista de 3 elementos con los resultados de las funciones ejecutadas con el número pasádo por segundo parámetro.
