@@ -1,3 +1,17 @@
+# Apuntes #
+
+O también llamadas: listas, vectores, arreglos… Para nosotros arrays o listas.
+
+Y qué son?
+
+Tipo de valor que agrupa valores de forma ordenada
+
+Primero se puede decir que es una agrupación como los objetos, o sea que estos valores están contenidos en 1 lugar.
+
+Luego que estos valores están dispuestos de forma ordenada. Esto significa que podemos decir que un valor está antes o después que otro.
+
+https://nperrin.io/es/tech/guia-introduccion-a-js#arrays
+
 ### Para filtrar se usa FILTER ###
 
 ```js
