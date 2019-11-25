@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Crear</h1>
+
+    <form method="POST" action="http://localhost:5501/api/asientos">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" autofocus required><br>
+        <label for="color">Telefono</label>
+        <input type="number" id="tel" name="tel" required><br>
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required><br>
+        <label for="hora">Hora</label>
+        <input type="text" id="hora" name="hora" required><br>
+        <label for="origen">Origen</label>
+        <input type="text" id="origen" name="origen" required><br>
+        <label for="destino">Destino</label>
+        <input type="text" id="destino" name="destino" required><br>
+        <label for="asiento">Asiento</label>
+        <input type="text" id="asiento" name="asiento" required><br>
+        <button type="submit">Crear</button>
+    </form>
+
+    <hr />
+
+    <h2>Borrar</h2>
+
+    <form onsubmit="borrar_asiento(event)">
+        <label for="id_asiento">ID Asiento</label>
+        <input id="id_asiento" name="id_asiento">
+        <button type="submit">Borrar</button>
+    </form>
+
+    <hr />
+
+    <h2>Actualizar</h2>
+
+    <form onsubmit="actualizar_asiento(event)" id="actualizar">
+        <label for="id_asiento">ID Asiento</label>
+        <input id="id_asiento" name="id_asiento"><br>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" autofocus required><br>
+        <label for="color">Telefono</label>
+        <input type="number" id="tel" name="tel" required><br>
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required><br>
+        <label for="hora">Hora</label>
+        <input type="text" id="hora" name="hora" required><br>
+        <label for="origen">Origen</label>
+        <input type="text" id="origen" name="origen" required><br>
+        <label for="destino">Destino</label>
+        <input type="text" id="destino" name="destino" required><br>
+        <label for="asiento">Asiento</label>
+        <input type="text" id="asiento" name="asiento" required><br>
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <script>
+    async function borrar_asiento(e) {
+        e.preventDefault()
+        var id = document.querySelector('input[id="id_asiento"]').value
+        var respuesta = await fetch('http://localhost:5501/api/asientos', {
+            method: 'DELETE',
+            headers: { id_asiento: id }
+        })
+        var texto = await respuesta.text()
+        alert(texto)
+    }
+
+    async function actualizar_asiento(e) {
+        e.preventDefault()
+        var id = document.querySelector('form[id="actualizar"] input[id="id_asiento"]').value
+        var nombre = document.querySelector('form[id="actualizar"] input[id="nombre"]').value
+        var color = document.querySelector('form[id="actualizar"] input[id="tel"]').value
+        var color = document.querySelector('form[id="actualizar"] input[id="fecha"]').value
+        var color = document.querySelector('form[id="actualizar"] input[id="hora"]').value
+        var color = document.querySelector('form[id="actualizar"] input[id="origen"]').value
+        var color = document.querySelector('form[id="actualizar"] input[id="destino"]').value
+        var color = document.querySelector('form[id="actualizar"] input[id="asiento"]').value
+        var respuesta = await fetch('http://localhost:5501/api/asientos', {
+            method: 'PATCH',
+            headers: {
+                id_asiento: id,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nombre: nombre,
+                tel: tel,
+                fecha: fecha,
+                hora: hora,
+                origen: origen,
+                destino: destino,
+                asiento: asiento
+            })
+        })
+        var texto = await respuesta.text()
+        alert(texto)
+    }
+
+    </script>
+</body>
+</html>
+
