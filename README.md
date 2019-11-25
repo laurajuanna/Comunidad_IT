@@ -10,3 +10,4 @@
 - [Ejercicios con HTTP](https://github.com/laurajuanna/ComIT/blob/master/Ejercicios-http.md).
 - [Ejercicios integrando Back y Front con Fetch](https://github.com/laurajuanna/ComIT/blob/master/fech-back.md).
 - [Ejercicios de Arrays](https://github.com/laurajuanna/ComIT/blob/master/arrays.md).
+- [Ejercicios de Server + crear un CRUD](https://github.com/laurajuanna/ComIT/tree/master/SERVER%20EJERCICIO).
