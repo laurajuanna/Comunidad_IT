@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Zilla+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>Buscar</title>
+</head>
+<body>
+    <div class="marco">
+        <div class="contenedor">
+            <h1>Buscar</h1>
+            <form onsubmit="buscar_persona(event)">
+                <fieldset>
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" id="nombre" required>
+                </fieldset>
+                <button type="submit" class="otro">Buscar</button>
+            </form>
+            <button onclick="mostrar_personas()">Ver Todos</button>
+            <div class="perfiles"></div>
+        </div>
+        
+    </div>
+    <script>
+        async function buscar_persona(e){
+            e.preventDefault()
+
+            var nombre = e.target.elements.namedItem('nombre').value
+            var respuesta = await fetch('/api/personas_ok/'+nombre)
+            var persona = await respuesta.json()
+
+            if (respuesta.status!=200) {
+                var contenedor_perfil_html = document.querySelector('.perfiles')
+                contenedor_perfil_html.innerHTML = `
+                <p style="margin:20px">No existe ningún usuario con ese nombre.<br>Intentelo nuevamente.</p>
+                `
+                        }
+            else {
+                //console.log(persona)
+                var contenedor_perfil_html = document.querySelector('.perfiles')
+                contenedor_perfil_html.innerHTML = `
+                <img src="${persona.foto_perfil}" alt="foto de perfil de ${persona.nombre}" class="perfil_usuarios">
+                <p>${persona.nombre}</>
+                `
+            }            
+        }
+      
+        async function mostrar_personas(){
+           var respuesta = await fetch('/api/personas_ok')
+            //console.log(respuesta)
+            var contenido = await respuesta.json()
+            //console.log(contenido)
+            var personas = contenido.personas
+
+            //console.log(personas)
+
+            var personas_texto = transformarRespuesta(personas)
+
+            var perfiles_html = document.querySelector('.perfiles')
+            perfiles_html.innerHTML = `
+                <ul>
+                    ${personas_texto.join(' ')}
+                </ul>
+                `
+        }
+
+        function transformarRespuesta(lista){
+            return lista.map(function(persona){
+                return `
+                <li>
+                    <img src="${persona.foto_perfil}" alt="foto de perfil de ${persona.nombre}" class="perfil_usuarios">
+                    <p>${persona.nombre}</p>
+                </li>
+                `
+            })
+        }
+
+        //mostrar_personas()
+    </script>
+</body>
+</html>

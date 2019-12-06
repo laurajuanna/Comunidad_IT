@@ -1,0 +1,162 @@
+body {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    /*background-color: rgb(21, 44, 96);*/
+    background: url('/img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+.marco {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin: auto;
+}
+
+
+h1{
+    text-align: center;
+    font-size: -webkit-xxx-large;
+    color: #2d66d3;
+    text-transform: uppercase;
+}
+
+label {
+    color: grey;
+    font-size: larger;
+    font-weight: bold;
+}
+
+input {
+    width: 18vw auto;
+    height: 4vh;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #808080b3;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    font-size: larger;
+    text-transform: uppercase;
+    color: #808080;
+}
+
+/*
+input#foto_perfil {
+    width: fit-content;
+    color: hotpink;
+    border: 0;
+    overflow: hidden;
+} */
+
+input[type="file"] {
+    display: none;
+}
+
+.custom {
+    display: inline-block;
+    border: 0;
+    border-radius: 6px;
+    padding: 15px;
+    cursor: pointer;
+    color: white;
+    background-color: #888888;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+button{
+    width: 14vw auto;
+    height: 8vh;
+    border-radius: 6px;
+    border: 0;
+    background: #2d66d3;
+    font-weight: bolder;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.otro {
+    background: rgb(12, 179, 12);
+    width: 10vw auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button:hover{
+    background-color: rgb(12, 179, 12);
+}
+
+fieldset {
+    display: flex;
+    margin: 5px auto;
+    border-style: none;
+}
+
+.perfiles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: darkslategrey;
+}
+.perfil_usuarios {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 15px;
+    filter: grayscale();
+}
+
+.perfil_usuarios:hover{
+    filter: none;
+}
+
+p {
+    margin: auto;
+}
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    text-align: center;
+    color: darkslategrey;
+}

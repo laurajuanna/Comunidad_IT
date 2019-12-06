@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Zilla+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="marco">
+        <div class="contenedor">
+            <h1>Bienvenido !</h1>
+            <form action="/api/personas_ok" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <input type="text" name="nombre" id="nombre" value="Tu nombre es..." 
+                    onclick="borrar()" required>
+                </fieldset>
+                <fieldset>
+                    <label class="custom">
+                        <input 
+                        name="foto_perfil"
+                        id="foto_perfil" multiple="false" accept="imagen/*" required type="file"><span id="subir">Subi tu Foto</span> 
+                    </label>
+                </fieldset>
+                <button><a href="/buscar.html">Otros usuarios</a></button>
+                <button type="submit" class="otro">Sumate !</button>
+            </form>
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="application/javascript">
+        jQuery('#foto_perfil').change(function(){
+         var filename = jQuery(this).val().split('\\').pop();
+         var idname = jQuery(this).attr('id');
+         var hola = document.querySelector('#subir')
+         hola.textContent = "Subida exitosa !"
+        });
+        function borrar(){
+            var hola = document.querySelector('input#nombre')
+            hola.value = ""
+        }
+    </script>
+</body>
+</html>
+
+
+
