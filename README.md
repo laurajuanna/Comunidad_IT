@@ -8,4 +8,5 @@
 - [Ejercicios con HTTP](https://github.com/laurajuanna/ComIT/blob/master/Ejercicios-http.md).
 - [Ejercicios integrando Back y Front con Fetch](https://github.com/laurajuanna/ComIT/blob/master/fech-back.md).
 - [Ejercicios de Arrays](https://github.com/laurajuanna/ComIT/blob/master/arrays.md).
-- [Ejercicios de Server + crear un CRUD](https://github.com/laurajuanna/ComIT/tree/master/SERVER%20EJERCICIO).
+- [Ejercicios de Server + crear un CRUD](https://github.com/laurajuanna/Comunidad_IT/tree/master/1er-Ejemplo-Servidor).
+- [Ejercicios de Server + Express + MongoDb](https://github.com/laurajuanna/Comunidad_IT/tree/master/2do-Servidor-Express-MongoDb).
